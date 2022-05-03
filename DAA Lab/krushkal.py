@@ -45,8 +45,7 @@ class Graph:
 			parent[yroot] = xroot
 			rank[xroot] += 1
 
-	# The main function to construct MST using Kruskal's
-		# algorithm
+	# The main function to construct MST using Kruskal's algorithm
 	def KruskalMST(self):
 
 		result = [] # This will store the resultant MST
@@ -57,10 +56,7 @@ class Graph:
 		# An index variable, used for result[]
 		e = 0
 
-		# Step 1: Sort all the edges in
-		# non-decreasing order of their
-		# weight. If we are not allowed to change the
-		# given graph, we can create a copy of graph
+		# Sort all the edges in non-decreasing order of their weight. If we are not allowed to change the given graph, we can create a copy of graph
 		self.graph = sorted(self.graph,key=lambda item: item[2])
 
 		parent = []
@@ -74,17 +70,13 @@ class Graph:
 		# Number of edges to be taken is equal to V-1
 		while e < self.V - 1:
 
-			# Step 2: Pick the smallest edge and increment
-			# the index for next iteration
+			# Pick the smallest edge and increment the index for next iteration
 			u, v, w = self.graph[i]
 			i = i + 1
 			x = self.find(parent, u)
 			y = self.find(parent, v)
 
-			# If including this edge doesn't
-			# cause cycle, include it in result
-			# and increment the indexof result
-			# for next edge
+			# If including this edge doesn't cause cycle, include it in result and increment the indexof result for next edge
 			if x != y:
 				e = e + 1
 				result.append([u, v, w])
