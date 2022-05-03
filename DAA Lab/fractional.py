@@ -1,3 +1,5 @@
+# Python3 program to solve fractional
+# Knapsack Problem
 class ItemValue:
 
 	"""Item Value DataClass"""
@@ -11,6 +13,8 @@ class ItemValue:
 	def __lt__(self, other):
 		return self.cost < other.cost
 
+# Greedy Approach
+
 
 class FractionalKnapSack:
 
@@ -22,6 +26,7 @@ class FractionalKnapSack:
 		for i in range(len(wt)):
 			iVal.append(ItemValue(wt[i], val[i], i))
 
+		# sorting items by value
 		iVal.sort(reverse=True)
 
 		totalValue = 0
@@ -38,10 +43,13 @@ class FractionalKnapSack:
 				break
 		return totalValue
 
+
+# Driver Code
 if __name__ == "__main__":
 	wt = [10, 40, 20, 30]
 	val = [60, 40, 100, 120]
 	capacity = 50
 
+	# Function call
 	maxValue = FractionalKnapSack.getMaxValue(wt, val, capacity)
 	print("Maximum value in Knapsack =", maxValue)
